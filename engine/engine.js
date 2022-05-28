@@ -8,7 +8,7 @@ const client = new MongoClient(MongoServerURL);
 const engine = async (txhash) => {
   await client.connect;
   provider.getTransaction(txhash).then(function (transaction) {
-    const database = client.db("Engien");
+    const database = client.db("Engine");
     const transactions = database.collection("Transactions");
     if (transaction == null) {
       return;

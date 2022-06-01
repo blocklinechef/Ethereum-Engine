@@ -1,0 +1,20 @@
+version: '3'
+services:
+  engine:
+    container_name: engine
+    restart: always
+    build: .
+    environment:
+      NAME: Arbitrum
+      MongoServerURL: mongodb://mongo:27017
+      WebsocketProvider: wss://speedy-nodes-nyc.moralis.io/ebc2ab2b8b412b675dd8dcbc/eth/mainnet/ws
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports: 
+      - "27017:27017"
+    
